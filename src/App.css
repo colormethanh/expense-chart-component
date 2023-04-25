@@ -67,14 +67,89 @@ body {
 }
 
 .chart-bars-cont {
+  margin-top: 1rem;
+  display: grid;
+  height: 12rem;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1fr;
+  column-gap: 10px;
+}
+
+.bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.bar-info {
+  color: white;
+  background-color: hsl(25, 47%, 15%);
+  opacity: 0%;
+  border-radius: 5px;
+  font-size: 8px;
+  font-weight: 600;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 5px;
+  transition: opacity .5s;
+}
+
+.bar-box {
+  height: 85%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.bar-shell {
   display: flex;
   flex-direction: row;
-  height: 15rem;
+  justify-content: space-around;
+  height: 80%;
+  animation: draw 1s ease-in-out;
+}
+
+.bar-red {
+  background-color: hsl(10, 79%, 65%);
+  max-width: 2.75rem;
+  align-self: center;
+  flex-grow: 1;
+  border-radius: 5px;
+  height: 100%;
+  transition: opacity .5s;
+}
+
+.bar-blue {
+  background-color: hsl(186, 34%, 60%);
+  align-self: center;
+  flex-grow: 1;
+  max-width: 2.5rem;
+  border-radius: 5px;
+  height: 100%;
+}
+
+.hovered-opacity {
+  opacity: 75%;
+}
+
+.opacity-on {
+  opacity: 100%;
+}
+
+.bar-label {
+  height: 15%;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(28, 10%, 53%);
 }
 
 hr {
   border: solid 1px hsl(27, 66%, 92%);
   border-radius: 5px;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
   width: 100%;
 }
 
@@ -102,6 +177,13 @@ hr {
 
 @media screen and (min-width: 800px){
   .wrapper {
-    max-width: 40%;
+    max-width: 35%;
   }
+  .bar-info {
+    font-size: 15px;
+  }
+}
+
+@keyframes draw {
+  0% {height: 0;}
 }
