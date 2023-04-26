@@ -2,7 +2,7 @@
 import Bars from './Bars'
 
 
-export default function Chart() {
+export default function Chart(props) {
 
   return (
     <div className="chart-cont">
@@ -10,7 +10,7 @@ export default function Chart() {
         Spending - Last 7 days
       </div>
       
-      <Bars />
+      <Bars data={props.data}/>
       
       <hr></hr>
 

@@ -49,6 +49,36 @@ body {
   font-weight: 700;
 }
 
+/*
+ *
+ * Sidebar Contents
+ *
+*/
+
+.sidebar {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  border: solid 1px red;
+}
+
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+/* 
+ *
+ * Chart Contents
+ *
+*/
+
 .logo {
   display: flex;
   justify-content: center;
@@ -67,15 +97,13 @@ body {
 }
 
 #title{
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .chart-bars-cont {
   display: flex;
   height: 12rem;
   justify-content: space-around;
-  /* grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 1fr; */
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: 1fr;
 }
@@ -165,6 +193,12 @@ hr {
   margin-bottom: 1.5rem;
   width: 100%;
 }
+
+/* 
+ *
+ * Summary Contents
+ * 
+*/
 
 .summary {
   display: flex;

@@ -1,10 +1,7 @@
-
-import jsonData from './data.json'
 import { useEffect, useState } from 'react'
 
 function Bar(props) {
   const [isHover, setIsHover] = useState(false);
-
 
   return (
     <div className="bar" onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)}>
@@ -32,7 +29,7 @@ function Bar(props) {
 }
 
 
-export default function Bars() {
+export default function Bars(props) {
 
   // collecting data on jsonData
   const [largestBarIndex, setLargestBarIndex] = useState(0)
@@ -48,7 +45,7 @@ export default function Bars() {
     let smallest = 0
     let largestIndex = 0 
 
-    jsonData.map((day, index) => {
+    props.data.map((day, index) => {
       if (day.amount >= largest) {
         largest = day.amount
         largestIndex = index
@@ -66,7 +63,6 @@ export default function Bars() {
       max: largest,
       sum: sum
     })
-
 
   }, [])
 
@@ -86,7 +82,7 @@ export default function Bars() {
     <>
       <div className="chart-bars-cont">
         {  
-          jsonData.map((day, index) =>{
+          props.data.map((day, index) =>{
             
             if (index == largestBarIndex) {
               return (
