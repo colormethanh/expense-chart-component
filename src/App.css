@@ -72,7 +72,6 @@ body {
   height: 12rem;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: 1fr;
-  column-gap: 10px;
 }
 
 .bar {
@@ -109,7 +108,7 @@ body {
 
 .bar-red {
   background-color: hsl(10, 79%, 65%);
-  max-width: 2.75rem;
+  max-width: 2.5rem;
   align-self: center;
   flex-grow: 1;
   border-radius: 5px;
@@ -180,7 +179,7 @@ hr {
     max-width: 35%;
   }
   .bar-info {
-    font-size: 15px;
+    font-size: 12px;
   }
 }
 
