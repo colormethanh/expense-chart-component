@@ -66,26 +66,36 @@ body {
   border-radius: 10px;
 }
 
+#title{
+  margin-bottom: 3rem;
+}
+
 .chart-bars-cont {
-  margin-top: 1rem;
-  display: grid;
+  display: flex;
   height: 12rem;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 1fr;
-  column-gap: 10px;
+  justify-content: space-around;
+  /* grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1fr; */
 }
 
 .bar {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+}
+
+.bar-info-outer {
+  height: 1px;
+  overflow: visible;
 }
 
 .bar-info {
   color: white;
+  transform: translateY(-115%) ;
   background-color: hsl(25, 47%, 15%);
   opacity: 0%;
   border-radius: 5px;
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 600;
   padding: 5px;
   text-align: center;
@@ -109,7 +119,7 @@ body {
 
 .bar-red {
   background-color: hsl(10, 79%, 65%);
-  max-width: 2.75rem;
+  max-width: 2rem;
   align-self: center;
   flex-grow: 1;
   border-radius: 5px;
@@ -119,9 +129,9 @@ body {
 
 .bar-blue {
   background-color: hsl(186, 34%, 60%);
+  max-width: 2rem;
   align-self: center;
   flex-grow: 1;
-  max-width: 2.5rem;
   border-radius: 5px;
   height: 100%;
 }
@@ -177,10 +187,16 @@ hr {
 
 @media screen and (min-width: 800px){
   .wrapper {
-    max-width: 35%;
+    max-width: 30%;
   }
   .bar-info {
     font-size: 15px;
+  }
+  .bar-blue {
+    max-width: 2.75rem;
+  }
+  .bar-red {
+    max-width: 2.75rem;
   }
 }
 
