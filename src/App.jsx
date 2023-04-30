@@ -65,7 +65,7 @@ function App() {
   
   return (
     <div className="App">
-      <Sidebar barsData={barsData} setBarsData={setBarsData} analyzeData={analyzeData} setBarsInfo={setBarsInfo}/>
+      <Sidebar barsData={barsData} setBarsData={setBarsData} analyzeData={analyzeData} barsInfo={barsInfo} setBarsInfo={setBarsInfo}/>
       <div className="wrapper">
         <Balance />
         <Chart barsData={barsData} barsInfo={barsInfo}/>
