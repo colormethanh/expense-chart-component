@@ -10,7 +10,7 @@ export default function Chart(props) {
         Spending - Last 7 days
       </div>
       
-      <Bars data={props.data}/>
+      <Bars barsData={props.barsData} barsInfo={props.barsInfo}/>
       
       <hr></hr>
 

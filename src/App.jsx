@@ -9,64 +9,66 @@ import Footer from './Footer'
 import { useEffect } from 'react'
 
 
+
+function analyzeData(data) {
+
+  let dataInfo = {
+    sum: 0,
+    max: 0,
+    maxValueIndex: 0,
+    maxValueDay: 0
+  }
+  
+  data.map((day, index) =>{
+
+    const dayAmount = parseFloat(day.amount)
+  
+    if (dayAmount >= dataInfo.max) {
+      dataInfo.max = dayAmount
+      dataInfo.maxValueDay = day.day
+      dataInfo.maxValueIndex = index
+    }
+
+    if (index == 0 || dayAmount <= dataInfo.min) {
+      dataInfo.min = dayAmount
+    }
+
+    dataInfo.sum += dayAmount
+  })
+
+  return dataInfo
+}
+
+
 function App() {
   
   const [barsInfo, setBarsInfo] = useState({
     min: 0,
     max: 0,
     sum: 0,
-    largestBarIndex: 0, 
+    maxValueIndex: 0,
+    maxValueDay:'', 
   })
-
-  // const [barsData, setBarsData] = useState({
-  //   "day0":0,
-  //   "day1":0,
-  //   "day2":0,
-  //   "day3":0,
-  //   "day4":0,
-  //   "day5":0,
-  //   "day6":0
-  // })
-
   const [barsData, setBarsData] = useState(jsonData)
 
   useEffect(() =>{
-    let sum = 0
-    let largest = 0
-    let smallest = 0
-    let largestIndex = 0
-
-    jsonData.map((day, index) =>{
-
-      const dayNum = "day" + index
-      if (day.amount >= largest) {
-        largest = day.amount
-        largestIndex = index
-      }
-
-      if (index == 0 || day.amount <= smallest) {
-        smallest = day.amount
-      }
-      
-      sum += day.amount
-
-    })
-
+    const barsInfo = analyzeData(barsData)
     setBarsInfo({
-      min: smallest,
-      max: largest,
-      sum: sum,
-      largestBarIndex: largestIndex,
+      min: barsInfo.min,
+      max: barsInfo.max,
+      sum: barsInfo.sum,
+      maxValueIndex: barsInfo.maxValueIndex,
+      maxValueDay: barsInfo.maxValueDay
     })
 
   }, [])
   
   return (
     <div className="App">
-      <Sidebar data={barsData} setData={setBarsData}/>
+      <Sidebar barsData={barsData} setBarsData={setBarsData} analyzeData={analyzeData} setBarsInfo={setBarsInfo}/>
       <div className="wrapper">
         <Balance />
-        <Chart data={barsData}/>
+        <Chart barsData={barsData} barsInfo={barsInfo}/>
       </div>
       <Footer />
     </div>
