@@ -161,7 +161,7 @@ body {
 
 .chart-bars-cont {
   display: flex;
-  height: 12rem;
+  height: 20rem;
   justify-content: space-around;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: 1fr;
@@ -283,16 +283,16 @@ hr {
 
 @media screen and (min-width: 800px){
   .wrapper {
-    max-width: 30%;
+    max-width: 40%;
   }
   .bar-info {
     font-size: 15px;
   }
   .bar-blue {
-    max-width: 2.75rem;
+    max-width: 3.5rem;
   }
   .bar-red {
-    max-width: 2.75rem;
+    max-width: 3.5rem;
   }
 }
 
